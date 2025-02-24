@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesor in online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                body: '#273C66',
+                headerText: '#374151',
+                activeBg: '#F9FAFB',
+                activeText: '#0DA375',
+                steleRating: '#D6E8EB',
+                white: '#FFFFFF',
+                transparent: 'rgba(255, 255, 255, 0)',
+                black: '#000000',
+                grey: '#606060',
+                bgCards: '#CEF4E9',
+                gradientBt1: '#0EB582',
+                gradientBt2: '#273C66',
+              },
+              fontFamily: {
+                headingsFirst: ["Montserrat", "sans-serif"],
+                headingsSecond: ["Inter Regular", "sans-serif"],
+                paragraf: ["Inter Light", "sans-serif"]
+                },
+            }
+          }
+        }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbarToggle = document.querySelector("[data-collapse-toggle]");
+            const navbarMenu = document.querySelector("#navbar-sticky");
+          
+            navbarToggle.addEventListener("click", function() {
+               const expanded = navbarToggle.getAttribute("aria-expanded") === "true" || false;
+               navbarToggle.setAttribute("aria-expanded", !expanded);
+               navbarMenu.classList.toggle("hidden");
+               });
+            });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const stars = document.querySelectorAll(".star");
+            stars.forEach(star => {
+                star.setAttribute("fill", "white");
+            });
+            stars.forEach(star => {
+                star.addEventListener("click", function() {
+                    const clickedStarId = parseInt(this.id.replace("star", ""));
+                    highlightStars(clickedStarId);
+                });
+            });
+
+            function highlightStars(clickedStarId) {
+                for (let i = 1; i <= 5; i++) {
+                    const star = document.getElementById("star" + i);
+                    if (i <= clickedStarId) {
+                        star.setAttribute("fill", "#FF9D28");
+                    } else {
+                        star.setAttribute("fill", "white");
+                    }
+                }
+            }
+        });
+    </script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+</head>
+<body class=" bg-body overflow-x-hidden">
+    
+<!-- Header Desktop-->
+
+    <header class="w-full">
+        <nav class="bg-white  fixed w-full z-20 top-0 start-0 ">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse md:pl-24">
+                    <img src="build/img/logo-prof-online.png" class="h-8" alt="logo-profesori-in-online">
+                </a>
+                <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                    <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm sm:text-xs text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Deschide meniul</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                    </button>
+                </div>
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                    <ul class="flex flex-col p-4 md:p-0 mt-4 font-headingsSecond border border-gray-100 rounded-xl bg-bgCards md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                        <li>
+                            <a href="#" class="flex-row flex py-3 px-3  text-activeText bg-activeBg rounded-xl md:text-activeText " aria-current="page"><img class="mr-1 h-6" src="build/img/Home.png">Tablou de bord</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex flex-row pt-3 px-3 md:px-0 text-headerText rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:hover:text-activeText"><img class="mr-1 mt-0.5 h-5" src="build/img/Academy Cap.png">Formare</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex flex-row pt-3 px-3 md:px-0 text-headerText rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:hover:text-activeText"><img class="mr-1 mt-0.5 h-5" src="build/img/evaluari_.png">Evaluări</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex flex-row pt-3 px-3 md:px-0 text-headerText rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:hover:text-activeText"><img class="mr-1 " src="build/img/Camera.png"> Întâlniri live</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex flex-row pt-3 px-3 md:px-0 text-headerText rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:hover:text-activeText"><img class="h-5 mr-1 mt-0.5" src="build/img/Folder.png"> Portofoliu</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex flex-row pt-3 px-3 md:px-0 text-headerText rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:hover:text-activeText"><img class="mr-1 mt-0.5 h-5" src="build/img/Community.png"> Comunitate</a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex flex-row pt-3 px-3 md:px-0 text-headerText rounded-xl hover:bg-gray-100 md:hover:bg-transparent md:hover:text-activeText">Administrare<img class="mr-1 mt-1 h-5" src="build/img/Arrow.png"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero section desktop-->
+
+    <section class="hidden sm:block mt-20 w-screen bg-center bg-cover md:bg-right md:bg-contain bg-no-repeat md:bg-[url('build/img/hero-image.png')]">
+        <div class="sm:bg-gradient-to-r sm:from-white sm:from-65%">
+            <div class="px-10 mx-auto max-w-screen-xl text-left md:py-12 lg:pb-40">
+                <h1 class="mb-5 text-4xl font-bold text-white md:text-black md:text-5xl lg:text-6xl">Bine ai venit la <br>secțiunea de formare!</h1>
+                <p class="mb-8 text-sm font-normal text-white md:text-headerText lg:text-2xl sm:text-sm lg:pr-60">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero section mobile-->
+
+    <section class="block sm:hidden mt-24 bg-center bg-contain bg-no-repeat bg-[url('build/img/hero-image.png')]">
+        <div class="h-72 bg-gradient-to-b from-body from-10% via-transparent via-35%  to-white to-95%"></div>
+    </section>
+    <section class="block sm:hidden -mt-7 bg-gradient-to-t from-black from-10%">
+        <div class="bg-white px-6 mx-auto max-w-screen-xl text-left pb-16">
+            <h1 class="mb-5 text-4xl font-bold text-black pt-12">Bine ai venit la <br>secțiunea de formare!</h1>
+            <p class="mb-8 text-lg text-paragraf font-normal text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+
+    <section class="flex flex-row w-screen -mt-10 bg-contain md:-mt-32 justify-center bg-no-repeat bg-[url('build/img/bg-blue.png')]">
+        <div class="flex flex-col mt-14 pb-48 bg-no-repeat bg-center bg-[url('build/img/parcurs-mobile.png')] md:bg-[url('build/img/parcurs-desktop.png')]">
+            <div class="mt-4 flex flex-col md:mt-56 md:flex-row justify-between mx-6">
+
+                <!-- Card modul 1 -->
+
+                <div class="mt-56 md:mt-48 mb-28 md:w-[422px]">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod1.png" alt="icon-modul-1">
+                        <div class="pt-4 px-3 md:px-7">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 1- Introducerea în cursul Profesori în online</h6>
+                            <p class="mt-5 text-paragraf md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                                </button>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card modul 2 -->
+
+                <div class="md:mt-96 md:w-[422px] mb-28">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod2.png" alt="icon-modul-2">
+                        <div class="pt-4 px-3 md:pr-4">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 2- Rolul competențelor digitale în dezvoltarea cadrelor didactice</h6>
+                            <p class="mt-5 text-paragraf md:pr-6 md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                                </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between mx-6 ">
+
+                <!-- Card modul 3 -->
+
+                <div class="md:-mt-56 md:w-[422px] mb-28">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod3.png" alt="icon-modul-3">
+                        <div class="pt-4 px-3 md:px-7">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 3- Predarea, învațarea și ghidarea cu tehnologii digitale</h6>
+                            <p class="mt-5 text-paragraf md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card modul 4 -->
+
+                <div class="md:mt-1 md:ml-72 md:w-[422px] mb-28">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod4.png" alt="icon-modul-4">
+                        <div class="pt-4 px-3 md:px-7">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 4- Evaluarea cu tehnologii digitale</h6>
+                            <p class="mt-5 text-paragraf md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col  md:flex-row justify-center mx-6 ">
+
+                <!-- Card modul 5 -->
+
+                <div class="mb-28 md:-mt-48 md:w-[422px]">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod5.png" alt="icon-modul-5">
+                        <div class="pt-4 px-3 md:px-7">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 5- Dezvoltarea competențelor digitale pentru învățare activă</h6>
+                            <p class="mt-5 text-paragraf md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card modul 6 -->
+
+                <div class=" md:ml-[350px] md:w-[422px] mb-28">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod6.png" alt="icon-modul-6">
+                        <div class="pt-4 px-3 md:px-7">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 6- Noile tehnologii și rolul lor în educație</h6>
+                            <p class="mt-5 text-paragraf md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-start mx-6 ">
+
+                <!-- Card modul 7 -->
+
+                <div class="mb-28 md:-mt-40 md:w-[422px]">
+                    <a href="#" class="flex flex-row items-center bg-bgCards rounded-2xl md:flex-row md:max-w-xl bg-cover bg-no-repeat bg-[url('build/img/back-cards.png')] shadow-lg shadow-gray-900 ">
+                        <img class="self-start max-w-xs object-cover h-20 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="build/img/icon-mod7.png" alt="icon-modul-7">
+                        <div class="pt-4 px-3 md:px-7">
+                            <h6 class="md:text-2xl text-lg text-headingsSecond">Modul 7- Încheiere curs</h6>
+                            <p class="mt-5 text-paragraf md:text-sm text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+                            <button class=" relative inline-flex items-center justify-center ml-2 md:ml-8 my-5 p-0.5 me-2 w-44 overflow-hidden text-paragraf text-lg font-light text-black rounded-3xl group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-200">
+                                <span class="px-5 w-44 transition-all ease-in duration-75 bg-bgCards rounded-3xl group-hover:bg-opacity-0">
+                                Interacționează
+                                </span>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Congrats -->
+
+    <section id="felicitari" class="flex flex-col-reverse md:flex-row mb-20 justify-between md:mx-36">
+        <div class="md:w-1/3 md:pl-7 px-4">
+            <div>
+                <h5 class="mt-24 text-headingsSecond text-white text-3xl">Felicitări, ai ajuns la finalul cursului!</h5>
+                <p class="text-paragraf text-steleRating text-sm py-4 ">Dacă ai terminat toate modulele ne poți lăsa o recenzie pentru a ajuta viitorii participanți să aleagă acest curs.</p>
+                <div class="flex items-center gap-2.5">
+                    <svg id="star1" class="star " width="24" height="24" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.847 5.908L15.175 6.496C15.535 7.142 15.715 7.465 15.995 7.678C16.275 7.891 16.625 7.97 17.325 8.128L17.961 8.272L17.9633 8.27252C20.4218 8.82917 21.6501 9.1073 21.943 10.048C22.235 10.988 21.397 11.969 19.72 13.93L19.286 14.437L19.2816 14.4421C18.8085 14.9957 18.5707 15.274 18.464 15.617C18.357 15.962 18.393 16.334 18.465 17.077L18.531 17.754L18.5315 17.7592C18.7842 20.3727 18.9105 21.6794 18.145 22.26C17.3794 22.8417 16.2283 22.3116 13.929 21.2528L13.925 21.251L13.328 20.977C12.674 20.675 12.347 20.525 12 20.525C11.653 20.525 11.326 20.675 10.672 20.977L10.076 21.251C7.77299 22.311 6.62099 22.841 5.85599 22.261C5.0895 21.6794 5.21582 20.3727 5.46849 17.7592L5.46899 17.754L5.53499 17.078C5.60699 16.334 5.64299 15.962 5.53499 15.618C5.42907 15.2733 5.19035 14.9944 4.71507 14.4393L4.71399 14.438L4.27999 13.93C2.60299 11.97 1.76499 10.989 2.05699 10.048C2.34999 9.107 3.57999 8.828 6.03999 8.272L6.67599 8.128C7.37499 7.97 7.72399 7.891 8.00499 7.678C8.28499 7.465 8.46499 7.142 8.82499 6.496L9.15299 5.908L9.155 5.9044C10.4207 3.6348 11.0535 2.5 12 2.5C12.8873 2.5 13.499 3.49738 14.6149 5.49215C14.6892 5.62513 14.7659 5.76254 14.845 5.90439L14.847 5.908Z" />
+                    </svg>
+                    <svg id="star2" class="star" width="24" height="24" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.847 5.908L15.175 6.496C15.535 7.142 15.715 7.465 15.995 7.678C16.275 7.891 16.625 7.97 17.325 8.128L17.961 8.272L17.9633 8.27252C20.4218 8.82917 21.6501 9.1073 21.943 10.048C22.235 10.988 21.397 11.969 19.72 13.93L19.286 14.437L19.2816 14.4421C18.8085 14.9957 18.5707 15.274 18.464 15.617C18.357 15.962 18.393 16.334 18.465 17.077L18.531 17.754L18.5315 17.7592C18.7842 20.3727 18.9105 21.6794 18.145 22.26C17.3794 22.8417 16.2283 22.3116 13.929 21.2528L13.925 21.251L13.328 20.977C12.674 20.675 12.347 20.525 12 20.525C11.653 20.525 11.326 20.675 10.672 20.977L10.076 21.251C7.77299 22.311 6.62099 22.841 5.85599 22.261C5.0895 21.6794 5.21582 20.3727 5.46849 17.7592L5.46899 17.754L5.53499 17.078C5.60699 16.334 5.64299 15.962 5.53499 15.618C5.42907 15.2733 5.19035 14.9944 4.71507 14.4393L4.71399 14.438L4.27999 13.93C2.60299 11.97 1.76499 10.989 2.05699 10.048C2.34999 9.107 3.57999 8.828 6.03999 8.272L6.67599 8.128C7.37499 7.97 7.72399 7.891 8.00499 7.678C8.28499 7.465 8.46499 7.142 8.82499 6.496L9.15299 5.908L9.155 5.9044C10.4207 3.6348 11.0535 2.5 12 2.5C12.8873 2.5 13.499 3.49738 14.6149 5.49215C14.6892 5.62513 14.7659 5.76254 14.845 5.90439L14.847 5.908Z"/>
+                    </svg>
+                    <svg id="star3" class="star" width="24" height="24" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.847 5.908L15.175 6.496C15.535 7.142 15.715 7.465 15.995 7.678C16.275 7.891 16.625 7.97 17.325 8.128L17.961 8.272L17.9633 8.27252C20.4218 8.82917 21.6501 9.1073 21.943 10.048C22.235 10.988 21.397 11.969 19.72 13.93L19.286 14.437L19.2816 14.4421C18.8085 14.9957 18.5707 15.274 18.464 15.617C18.357 15.962 18.393 16.334 18.465 17.077L18.531 17.754L18.5315 17.7592C18.7842 20.3727 18.9105 21.6794 18.145 22.26C17.3794 22.8417 16.2283 22.3116 13.929 21.2528L13.925 21.251L13.328 20.977C12.674 20.675 12.347 20.525 12 20.525C11.653 20.525 11.326 20.675 10.672 20.977L10.076 21.251C7.77299 22.311 6.62099 22.841 5.85599 22.261C5.0895 21.6794 5.21582 20.3727 5.46849 17.7592L5.46899 17.754L5.53499 17.078C5.60699 16.334 5.64299 15.962 5.53499 15.618C5.42907 15.2733 5.19035 14.9944 4.71507 14.4393L4.71399 14.438L4.27999 13.93C2.60299 11.97 1.76499 10.989 2.05699 10.048C2.34999 9.107 3.57999 8.828 6.03999 8.272L6.67599 8.128C7.37499 7.97 7.72399 7.891 8.00499 7.678C8.28499 7.465 8.46499 7.142 8.82499 6.496L9.15299 5.908L9.155 5.9044C10.4207 3.6348 11.0535 2.5 12 2.5C12.8873 2.5 13.499 3.49738 14.6149 5.49215C14.6892 5.62513 14.7659 5.76254 14.845 5.90439L14.847 5.908Z"/>
+                    </svg>
+                    <svg id="star4" class="star" width="24" height="24" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.847 5.908L15.175 6.496C15.535 7.142 15.715 7.465 15.995 7.678C16.275 7.891 16.625 7.97 17.325 8.128L17.961 8.272L17.9633 8.27252C20.4218 8.82917 21.6501 9.1073 21.943 10.048C22.235 10.988 21.397 11.969 19.72 13.93L19.286 14.437L19.2816 14.4421C18.8085 14.9957 18.5707 15.274 18.464 15.617C18.357 15.962 18.393 16.334 18.465 17.077L18.531 17.754L18.5315 17.7592C18.7842 20.3727 18.9105 21.6794 18.145 22.26C17.3794 22.8417 16.2283 22.3116 13.929 21.2528L13.925 21.251L13.328 20.977C12.674 20.675 12.347 20.525 12 20.525C11.653 20.525 11.326 20.675 10.672 20.977L10.076 21.251C7.77299 22.311 6.62099 22.841 5.85599 22.261C5.0895 21.6794 5.21582 20.3727 5.46849 17.7592L5.46899 17.754L5.53499 17.078C5.60699 16.334 5.64299 15.962 5.53499 15.618C5.42907 15.2733 5.19035 14.9944 4.71507 14.4393L4.71399 14.438L4.27999 13.93C2.60299 11.97 1.76499 10.989 2.05699 10.048C2.34999 9.107 3.57999 8.828 6.03999 8.272L6.67599 8.128C7.37499 7.97 7.72399 7.891 8.00499 7.678C8.28499 7.465 8.46499 7.142 8.82499 6.496L9.15299 5.908L9.155 5.9044C10.4207 3.6348 11.0535 2.5 12 2.5C12.8873 2.5 13.499 3.49738 14.6149 5.49215C14.6892 5.62513 14.7659 5.76254 14.845 5.90439L14.847 5.908Z"/>
+                    </svg>
+                    <svg id="star5" class="star" width="24" height="24" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.847 5.908L15.175 6.496C15.535 7.142 15.715 7.465 15.995 7.678C16.275 7.891 16.625 7.97 17.325 8.128L17.961 8.272L17.9633 8.27252C20.4218 8.82917 21.6501 9.1073 21.943 10.048C22.235 10.988 21.397 11.969 19.72 13.93L19.286 14.437L19.2816 14.4421C18.8085 14.9957 18.5707 15.274 18.464 15.617C18.357 15.962 18.393 16.334 18.465 17.077L18.531 17.754L18.5315 17.7592C18.7842 20.3727 18.9105 21.6794 18.145 22.26C17.3794 22.8417 16.2283 22.3116 13.929 21.2528L13.925 21.251L13.328 20.977C12.674 20.675 12.347 20.525 12 20.525C11.653 20.525 11.326 20.675 10.672 20.977L10.076 21.251C7.77299 22.311 6.62099 22.841 5.85599 22.261C5.0895 21.6794 5.21582 20.3727 5.46849 17.7592L5.46899 17.754L5.53499 17.078C5.60699 16.334 5.64299 15.962 5.53499 15.618C5.42907 15.2733 5.19035 14.9944 4.71507 14.4393L4.71399 14.438L4.27999 13.93C2.60299 11.97 1.76499 10.989 2.05699 10.048C2.34999 9.107 3.57999 8.828 6.03999 8.272L6.67599 8.128C7.37499 7.97 7.72399 7.891 8.00499 7.678C8.28499 7.465 8.46499 7.142 8.82499 6.496L9.15299 5.908L9.155 5.9044C10.4207 3.6348 11.0535 2.5 12 2.5C12.8873 2.5 13.499 3.49738 14.6149 5.49215C14.6892 5.62513 14.7659 5.76254 14.845 5.90439L14.847 5.908Z"/>
+                    </svg>
+                    
+                    <p class="pl-4 text-white text-sm text-steleRating">Medie: 5 stele</p>
+                </div>
+            </div>
+        </div>
+        <div class="md:pr-7">
+            <img src="build/img/absolventi2.png" alt="ilustratie absolventi">
+        </div>
+    </section>
+
+    <!-- Final - Carusel -->
+
+    <section class="flex flex-row w-screen md:mt-60 md:mb-28">
+        <div class="flex flex-col-reverse md:flex-row mb-20 md:mx-40 md:gap-36 ">
+
+    <!-- Impreuna -->
+
+    <div class="order-1 md:ml-10 md:w-1/4">
+        <h2 class="text-headingsFirst text-activeText text-4xl text-center mx-3 my-5 md:font-bold md:-ml-24 md:-mr-72 md:-mt-4 md:text-left md:text-5xl md:leading-normal">Împreună cu partenerii noștri oferim educație de calitate!</h2>
+    </div>
+
+<!-- Carousel -->
+
+    <div class="flex flex-row">
+
+        <div class=" md:order-1 order-2 flex bg-cover bg-no-repeat h-40 w-32 md:h-60 md:w-48 ml-4 bg-[url('build/img/glob-carusel.png')]">
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <div class="relative h-40 md:h-56 overflow-hidden rounded-lg">
+                    <div class="hidden duration-700 ease-in-out mb-14 ml-2 mt-3 md:ml-3 md:mt-2" data-carousel-item>
+                        <img src="build/img/partener1.png" class="max-h-20 md:max-h-28 absolute block w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="logo-partener-1">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out mb-14 ml-3 mt-2" data-carousel-item>
+                        <img src="build/img/partener2.png" class="max-h-20 md:max-h-28 w-auto absolute block -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="logo-partener-2">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out mb-14 ml-3 mt-2" data-carousel-item>
+                        <img src="build/img/partener3.png" class="max-h-14 md:max-h-28 absolute block w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="logo-partener-3">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out mb-14 ml-3 mt-2" data-carousel-item>
+                        <img src="build/img/partener4.png" class="max-h-20 md:max-h-28 absolute block w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="logo-partener-4">
+                    </div>
+                    <div class="hidden duration-700 ease-in-out mb-14 ml-3 mt-2" data-carousel-item>
+                        <img src="build/img/partener5.png" class="max-h-20 md:max-h-28 absolute block w-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="logo-partener-5">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carti desktop -->
+
+        <div class="sm:hidden block order-3 w-1/2">
+            <img class="md:w-80" src="build/img/carti.png" alt="ilustratie-carti">
+        </div>
+    </div>
+
+        <!-- Carti mobile -->
+
+    <div class="hidden sm:block md:ml-16 md:pl-24 h-6 order-3 w-1/2">
+        <img class="md:w-80" src="build/img/carti.png" alt="ilustratie-carti">
+    </div>
+</div>
+</section>
+
+    <!-- Footer -->
+
+    <footer class="flex flex-col items-center md:flex-row md:justify-between mb-5 md:mx-40">
+        <div>
+            <img class="h-8 mb-5 md:mb-0" src="build/img/Profesor-in-online-alb.png" alt="logo-profesori-in-online">
+        </div>
+        <div>
+            <p class="text-steleRating text-xs text-headingsSecond mb-5 md:mb-0">&#169;2024, Profesor în online. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
+</body>
+</html>
